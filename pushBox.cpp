@@ -4,8 +4,8 @@ using namespace std;
 
 int mat[100][100];
 int old_mat[100][100];
-int n;
-int m;
+int col;
+int row;
 int ntest;
 
 int old_playerX, old_playerY;
@@ -34,8 +34,8 @@ int main()
 void init()
 {
     cout<<"initializing"<<endl;
-    cin>>m>>n>>ntest;
-    for(int i = 0; i < n; ++i)
+    cin>>col>>row>>ntest;
+    for(int i = 0; i < row; ++i)
     {
         string tmp = "";
         cin>>tmp;
@@ -76,9 +76,9 @@ void recover()
     playerY = old_playerY;
     boxX = old_boxX;
     boxY = old_boxY;
-    for(int i = 0; i < n; ++i)
+    for(int i = 0; i < row; ++i)
     {
-        for(int j = 0; j < m; ++j)
+        for(int j = 0; j < col; ++j)
         {
             mat[i][j] = old_mat[i][j];
         }
@@ -146,7 +146,7 @@ void right()
     int newPlayerX = playerX;
     int newPlayerY = playerY + 1;
     
-    if(newPlayerX > n-1 || newPlayerY > m-1 ||
+    if(newPlayerX > col-1 || newPlayerY > row-1 ||
         newPlayerX < 0 || newPlayerY < 0 ||
         mat[newPlayerX][newPlayerY] == 4)
     {
@@ -156,7 +156,7 @@ void right()
     {
         int newBoxX = boxX;
         int newBoxY = boxY + 1;
-        if(newBoxX > n-1 || newBoxY > m-1 ||
+        if(newBoxX > col-1 || newBoxY > row-1 ||
         newBoxX < 0 || newBoxY < 0 || 
         mat[newBoxX][newBoxY] == 4)
         {
@@ -198,7 +198,7 @@ void left()
     int newPlayerX = playerX;
     int newPlayerY = playerY - 1;
     
-    if(newPlayerX > n-1 || newPlayerY > m-1 ||
+    if(newPlayerX > col-1 || newPlayerY > row-1 ||
         newPlayerX < 0 || newPlayerY < 0 ||
         mat[newPlayerX][newPlayerY] == 4)
     {
@@ -208,7 +208,7 @@ void left()
     {
         int newBoxX = boxX;
         int newBoxY = boxY - 1;
-        if(newBoxX > n-1 || newBoxY > m-1 ||
+        if(newBoxX > col-1 || newBoxY > row-1 ||
         newBoxX < 0 || newBoxY < 0 || 
         mat[newBoxX][newBoxY] == 4)
         {
@@ -251,7 +251,7 @@ void up()
     int newPlayerX = playerX - 1;
     int newPlayerY = playerY;
     
-    if(newPlayerX > n-1 || newPlayerY > m-1 ||
+    if(newPlayerX > col-1 || newPlayerY > row-1 ||
         newPlayerX < 0 || newPlayerY < 0 ||
         mat[newPlayerX][newPlayerY] == 4)
     {
@@ -261,7 +261,7 @@ void up()
     {
         int newBoxX = boxX - 1;
         int newBoxY = boxY;
-        if(newBoxX > n-1 || newBoxY > m-1 ||
+        if(newBoxX > col-1 || newBoxY > row-1 ||
         newBoxX < 0 || newBoxY < 0 || 
         mat[newBoxX][newBoxY] == 4)
         {
@@ -304,7 +304,7 @@ void down()
     int newPlayerX = playerX + 1;
     int newPlayerY = playerY;
     
-    if(newPlayerX > n-1 || newPlayerY > m-1 ||
+    if(newPlayerX > col-1 || newPlayerY > row-1 ||
         newPlayerX < 0 || newPlayerY < 0 ||
         mat[newPlayerX][newPlayerY] == 4)
     {
@@ -315,7 +315,7 @@ void down()
         //cout<<"@@"<<endl;  
         int newBoxX = boxX + 1;
         int newBoxY = boxY;
-        if(newBoxX > n-1 || newBoxY > m-1 ||
+        if(newBoxX > col-1 || newBoxY > row-1 ||
         newBoxX < 0 || newBoxY < 0 || 
         mat[newBoxX][newBoxY] == 4)
         {
